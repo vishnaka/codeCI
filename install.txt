@@ -1,0 +1,10 @@
+How To Install
+--------------------------
+
+Configuration
+
+Please copy this file to under folder called "codeCI".
+Under application/config/config.php change $config['base_url'] path
+Under application/config/database.php change database setting
+db install script /dbscript folder.
+
