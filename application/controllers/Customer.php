@@ -44,13 +44,8 @@ class Customer extends CI_Controller {
     
     public function index() {
 
-        //check customers available
-        if (count($this->customer->dbGetAllCustomers()) > 0) {
-            $data['customers'] = $this->customer->dbGetAllCustomers();
-        } else {
-            $data['customers'] = '';
-        }
-
+        $data['customers'] = $this->customer->dbGetAllCustomers();
+        
         //loding header part of template
         $this->load->view('template/header', $data);
         //loding content part of template
@@ -76,7 +71,7 @@ class Customer extends CI_Controller {
             //check validation of user inputs
             $this->form_validation->set_rules('customer_name', $this->lang->line('customer_name'), 'trim|required');
             $this->form_validation->set_rules('customer_email', $this->lang->line('customer_email'), 'trim|required|valid_email');
-            $this->form_validation->set_rules('customer_phone', $this->lang->line('customer_phone'), 'trim|required|regex_match[/^[0-9]{10}$/]');
+            $this->form_validation->set_rules('customer_phone', $this->lang->line('customer_phone'), 'trim|required|min_length[7]');
 
             //if something wrong then execute this block
             if ($this->form_validation->run() == false) {
