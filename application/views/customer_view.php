@@ -136,25 +136,39 @@
                 ?>
 
 
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!-- End Bootstrap modal form -->
+
+            <!-- Bootstrap modal form delete -->
+            <div class="modal fade" id="modal_form-delete" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title"><?php echo $this->lang->line('modal_delete_title') ?></h3>
+            </div>
+            <div class="modal-body form">
+                <?php
+                $hiddenDel = array(
+                        'delete_customer_id'  => '-1',
+                        'delete_url' => base_url()
+                );
+                echo form_hidden($hiddenDel);
+                ?>
+                <div id="alert-modal-body"></div>
+                <div class="modal-body">
+                    <p><?php echo $this->lang->line('modal_delete_message') ?></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="btnYes" class="btn btn-danger"><?php echo $this->lang->line('btn_yes') ?></a>
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary"><?php echo $this->lang->line('btn_no') ?></a>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal form -->
-
-<!-- Bootstrap modal form delete -->
-<div class="modal fade" id="modal_form-delete" role="dialog">
-    <div class="modal-header">
-        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-         <h3>Delete</h3>
-    </div>
-    <div class="modal-body">
-        <p>You are about to delete.</p>
-        <p>Do you want to proceed?</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" id="btnYes" class="btn danger">Yes</a>
-      <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
-    </div>
-</div>
 <!-- End Bootstrap modal delete -->

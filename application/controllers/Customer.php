@@ -93,7 +93,7 @@ class Customer extends CI_Controller {
                     if ($insertCustomer > 0) {
                         echo json_encode(array("status" => true, "msg" => $this->lang->line('insert')));
                     } else {
-                        echo json_encode(array("status" => true, "msg" => $this->lang->line('err_insert')));
+                        echo json_encode(array("status" => false, "msg" => $this->lang->line('err_insert')));
                     }
                 } catch (Exception $exc) {
                     echo json_encode(array("status" => false, "msg" => $this->lang->line('err_insert')));
@@ -171,7 +171,7 @@ class Customer extends CI_Controller {
                         if ($updateCustomer > 0) {
                             echo json_encode(array("status" => true, "msg" => $this->lang->line('update')));
                         }else{
-                            echo json_encode(array("status" => true, "msg" => $this->lang->line('err_update')));
+                            echo json_encode(array("status" => false, "msg" => $this->lang->line('err_update')));
                         }
                     } catch (Exception $exc) {
                         echo json_encode(array("status" => false, "msg" => $this->lang->line('err_update')));

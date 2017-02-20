@@ -1,7 +1,13 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+/* ----------------------------------------------------------------------------
+ * Simple Data Grid System - by Amila
+ *
+ * @package     Simple Data Grid System
+ * @author      Amila Tilakarathna<vishnaka23@gmail.com>
+ * @copyright   Copyright (c) 2017, Amila
+ * @link        http://localhost/codeCI/
+ * @since       v1.0.0
+ * ---------------------------------------------------------------------------- */
+
 $(document).ready( function () {
     $('#table_id').DataTable();
 } );
@@ -94,9 +100,17 @@ function save()
 
 function delete_customer(id)
 {
-    if(confirm('Are you sure delete this data?'))
-    {
-        baseurl = $('[name="url"]').attr('value');
+    $('[name="delete_customer_id"]').val(id);
+    $('#modal_form-delete').modal('show');
+
+}
+
+$('#btnYes').click(function() {
+    // handle deletion here
+    
+  	baseurl = $('[name="delete_url"]').attr('value');
+        id=$('[name="delete_customer_id"]').attr('value');
+
         // ajax delete data from database
         $.ajax({
             url : baseurl+'index.php/customer/customerDelete/'+id,
@@ -104,8 +118,7 @@ function delete_customer(id)
             dataType: "JSON",
             success: function(data)
             {
-
-                location.reload();
+               location.reload();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -113,5 +126,4 @@ function delete_customer(id)
             }
         });
 
-    }
-}
+});
